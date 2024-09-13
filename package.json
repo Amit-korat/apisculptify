@@ -1,7 +1,7 @@
 {
     "name": "apisculptify",
     "version": "1.0.0",
-    "description": "Apisculptify is a powerful Node.js tool designed to automate the process of generating RESTful APIs for your TypeORM models. With Apisculptify, you can quickly create a new project, define your TypeORM models, and effortlessly generate CRUD (Create, Read, Update, Delete) APIs for them and also swagger documentaion.",
+    "description": "Apisculptify is a powerful Node.js tool designed to automate the process of generating RESTful APIs for your TypeORM models. With Apisculptify, you can quickly create a new project, define your TypeORM models, and effortlessly generate CRUD (Create, Read, Update, Delete) APIs for them and also swagger documentation.",
     "main": "./build/index.js",
     "scripts": {
         "start": "ts-node index.ts",
