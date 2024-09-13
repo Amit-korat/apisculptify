@@ -10,16 +10,28 @@ npm install -g apisculptify
 ## Getting Started
 Follow the steps below to get started with Apisculptify:
 
-1. Create a new project using the `apisculptify new` command:
+#### 1. Create a new project using the `apisculptify new` command:
 
 ```bash
-apisculptify new 
+apisculptify new
+```
+```bash
+apisculptify -n
+```
+```bash
+apisculptify --new
 ```
 
-Apisculptify will ask for folder path upto src directory or folder. you need to choose src directory of you project.
+#### 2. Apisculptify will ask for folder path up to 'src' directory or folder. you need to choose 'src' directory of you project.
 
 ```bash
 apisculptify generate:api
+```
+```bash
+apisculptify -g:api
+```
+```bash
+apisculptify --generate:api
 ```
 
 Apisculptify will automatically scan the `model` folder, detect your TypeORM models, and generate CRUD APIs for each model. The generated APIs will be placed in the `src` folder of your project.
