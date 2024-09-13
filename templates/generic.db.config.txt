@@ -1,0 +1,18 @@
+
+import { DataSource } from "typeorm";
+
+
+export const myDataSource: DataSource = new DataSource({
+    type: "mysql",
+    host: "localhost",
+    port: 3307,
+    username: "root",
+    password: "",
+    database: "crud_swagger",
+    entities: ["src/model/*.ts"],
+    logging: true,
+    synchronize: true
+
+})
+
+

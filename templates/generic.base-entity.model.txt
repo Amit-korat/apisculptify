@@ -1,0 +1,37 @@
+import { Column, PrimaryGeneratedColumn, CreateDateColumn, Index, UpdateDateColumn, BeforeUpdate, BeforeInsert, Generated } from "typeorm";
+
+
+export abstract class BaseEntity {
+    @PrimaryGeneratedColumn()
+    id: number = 0;
+
+    @Generated("uuid")
+    @Column({ unique: true, nullable: false })
+    uid: string;
+
+    @Index()
+    @UpdateDateColumn({ name: "update_at", nullable: false })
+    updateAt: Date;
+
+
+    @Index()
+    @CreateDateColumn({ name: "create_at", nullable: false, update: false })
+    createAt: Date;
+
+    @Column({ name: "is_active", default: true, nullable: false })
+    isActive: boolean
+
+    @BeforeUpdate()
+    private beforeUpdate(): void {
+        this.updateAt = new Date();
+    }
+
+    @BeforeInsert()
+    private beforeCreate(): void {
+        this.updateAt = new Date();
+        this.createAt = new Date();
+    }
+
+
+
+}

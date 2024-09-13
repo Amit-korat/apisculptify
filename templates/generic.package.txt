@@ -1,0 +1,31 @@
+{
+  "name": "type-orm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.ts",
+    "build": "npx tsc ",
+    "swagger": "npx tsoa spec"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "class-validator": "^0.14.0",
+    "express": "^4.18.2",
+    "mysql2": "^3.5.2",
+    "reflect-metadata": "^0.1.13",
+    "swagger-ui-express": "^5.0.0",
+    "typeorm": "^0.3.17"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.4.5",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "tsoa": "^5.1.1",
+    "typescript": "^5.1.6"
+  }
+}

@@ -1,0 +1,31 @@
+import { [[MODEL_NAME_WITHOUT_KEY]]Service } from "../service/[[MODEL_NAME_WITH_DASH]].service";
+import { [[MODEL_NAME]] } from "../model/[[MODEL_NAME_WITH_DASH]].model";
+import { DeleteResult } from "typeorm";
+import { SearchResult } from "../util/search-result";
+import { Route, Post, Put, Delete, Get, Path, Query, Body, Tags } from 'tsoa';
+
+@Route('[[MODEL_NAME_WITHOUT_KEY_LOWER]]')
+@Tags("[[MODEL_NAME_WITHOUT_KEY]]")
+export class [[MODEL_NAME_WITHOUT_KEY]]Controller {
+    @Post('/')
+    static async add(@Body() data: [[MODEL_NAME]]): Promise<[[MODEL_NAME]]> {
+        return [[MODEL_NAME_WITHOUT_KEY]]Service.add(data);
+    }
+    @Put('/:uid')
+    static async update(@Path() uid: string, @Body() data: [[MODEL_NAME]]): Promise<[[MODEL_NAME]]> {
+        return [[MODEL_NAME_WITHOUT_KEY]]Service.update(uid, data);
+    }
+    @Delete('/:uid')
+    static async delete(@Path() uid: string): Promise<DeleteResult> {
+        return [[MODEL_NAME_WITHOUT_KEY]]Service.delete(uid);
+    }
+    @Get('/byuid/:uid')
+    static async getByUid(@Path() uid: string): Promise<[[MODEL_NAME]]> {
+        return [[MODEL_NAME_WITHOUT_KEY]]Service.getByUid(uid);
+    }
+    @Get('/search')
+    static async find(@Query() query: any, @Query() order: any, @Query() start: number = 0, @Query() limit: number = 10,): Promise<SearchResult<[[MODEL_NAME]]>> {
+        let result = await [[MODEL_NAME_WITHOUT_KEY]]Service.find(query, order, start, limit);
+        return new SearchResult(result[1], start, limit, result[0])
+    }
+}

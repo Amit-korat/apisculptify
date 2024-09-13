@@ -1,0 +1,6 @@
+export class ErrorResult {
+    constructor(
+        public isError: boolean,
+        public message: string
+    ) { }
+}

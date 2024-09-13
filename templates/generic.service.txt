@@ -1,0 +1,73 @@
+import { DeleteResult } from "typeorm";
+import { myDataSource } from "../db/db.config";
+import { [[MODEL_NAME]] } from "../model/[[MODEL_NAME_WITH_DASH]].model";
+import { prepareWhere } from "../util/utils";
+import { ValidationError, validate } from "class-validator";
+[[DYNAMIC_IMPORTS]]
+
+export class [[MODEL_NAME_WITHOUT_KEY]]Service {
+
+    static async add(data: [[MODEL_NAME]]): Promise<[[MODEL_NAME]]> {
+        let [[MODEL_NAME_WITHOUT_KEY_LOWER]] = await myDataSource.getRepository([[MODEL_NAME]]).create(data)
+        await this.validateBeforeCreate([[MODEL_NAME_WITHOUT_KEY_LOWER]])
+        [[MODEL_NAME_WITHOUT_KEY_LOWER]] = await this.enrich([[MODEL_NAME_WITHOUT_KEY_LOWER]])
+        const result = await myDataSource.getRepository([[MODEL_NAME]]).save([[MODEL_NAME_WITHOUT_KEY_LOWER]])
+        return result;
+    }
+
+    static async update(uid: string, data: [[MODEL_NAME]]): Promise<[[MODEL_NAME]]> {
+        let [[MODEL_NAME_WITHOUT_KEY_LOWER]] = await myDataSource.getRepository([[MODEL_NAME]]).findOneBy({
+            uid: uid
+        })
+        myDataSource.getRepository([[MODEL_NAME]]).merge([[MODEL_NAME_WITHOUT_KEY_LOWER]], data)
+        await this.validateBeforeUpdate([[MODEL_NAME_WITHOUT_KEY_LOWER]])
+        [[MODEL_NAME_WITHOUT_KEY_LOWER]] = await this.enrich([[MODEL_NAME_WITHOUT_KEY_LOWER]])
+        const result = await myDataSource.getRepository([[MODEL_NAME]]).save([[MODEL_NAME_WITHOUT_KEY_LOWER]])
+        return result
+    }
+
+    static async delete(uid: string): Promise<DeleteResult> {
+        const result = await myDataSource.getRepository([[MODEL_NAME]]).delete({uid:uid});
+        return result;
+    }
+
+    static async getByUid(uid: string): Promise<[[MODEL_NAME]]> {
+        const result = await myDataSource.getRepository([[MODEL_NAME]]).findOneBy({
+            uid: uid
+        })
+        return result
+    }
+
+    static async find(query: any, order: any, start: number = 0, limit: number = 10,): Promise<[[[MODEL_NAME]][], number]> {
+        const fetchAndCount = await myDataSource.getRepository([[MODEL_NAME]]).findAndCount({
+            skip: start,
+            take: limit,
+            order: order,
+            where: prepareWhere(query),
+        })
+        return fetchAndCount;
+    }
+
+    static async validateBeforeCreate(model: [[MODEL_NAME]]) {
+        await this.validateModel(model)
+    }
+
+    static async validateBeforeUpdate(model: [[MODEL_NAME]]) {
+        await this.validateModel(model)
+    }
+
+    static async validateModel(model: [[MODEL_NAME]]) {
+        let error: ValidationError[] | string[] = await validate(model);
+        if (error.length) {
+            error = error.map(e => {
+                return e.constraints[Object.keys(e.constraints)[0]]
+            })
+            throw new Error(error.toString())
+        }
+    }
+
+    static async enrich(model: [[MODEL_NAME]]) {
+        [[ENRICH]]
+        return model;
+    }
+}

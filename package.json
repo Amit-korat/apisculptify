@@ -1,0 +1,52 @@
+{
+    "name": "apisculptify",
+    "version": "1.0.0",
+    "description": "Apisculptify is a powerful Node.js tool designed to automate the process of generating RESTful APIs for your TypeORM models. With Apisculptify, you can quickly create a new project, define your TypeORM models, and effortlessly generate CRUD (Create, Read, Update, Delete) APIs for them and also swagger documentaion.",
+    "main": "./build/index.js",
+    "scripts": {
+        "start": "ts-node index.ts",
+        "build": "npx tsc",
+        "test": "npm run test"
+    },
+    "bin": {
+        "apisculptify": "./build/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Amit-korat/apisculptify.git"
+    },
+    "keywords": [
+        "apisculptify",
+        "apisculptor",
+        "automaticapi",
+        "apigenerator",
+        "autogenerator",
+        "apigenerate",
+        "autocontrollers",
+        "autoroutes",
+        "autocrud",
+        "auto",
+        "autoservice",
+        "api-sculptor",
+        "autoservice",
+        "apigenerated",
+        "rest-api-generator",
+        "projectinitializer"
+    ],
+    "author": "Amit Korat",
+    "license": "MIT",
+    "dependencies": {
+        "inquirer": "^8.2.6",
+        "inquirer-select-directory": "^1.2.0",
+        "nanospinner": "^1.1.0",
+        "ts-morph": "^19.0.0",
+        "typescript": "^5.6.2"
+    },
+    "devDependencies": {
+        "@types/node": "^20.16.5"
+    },
+    "bugs": {
+        "url": "https://github.com/Amit-korat/apisculptify/issues"
+    },
+    "homepage": "https://github.com/Amit-korat/apisculptify#readme"
+}

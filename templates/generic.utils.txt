@@ -1,0 +1,64 @@
+
+import { Not, LessThan, LessThanOrEqual, MoreThan, MoreThanOrEqual, Equal, Like, ILike, Between, In, Any, IsNull, ArrayContains, ArrayContainedBy, ArrayOverlap, Raw } from "typeorm";
+
+const typeOperator: any = {
+    nt: Not,
+    lt: LessThan,
+    lte: LessThanOrEqual,
+    mt: MoreThan,
+    mte: MoreThanOrEqual,
+    eq: Equal,
+    lk: Like,
+    ilk: ILike,
+    btw: Between,
+    in: In,
+    any: Any,
+    inl: IsNull,
+    ac: ArrayContains,
+    acb: ArrayContainedBy,
+    aol: ArrayOverlap,
+    raw: Raw
+}
+export function prepareFilterByParent(obj: any) {
+    let obj2: any = {};
+    console.log(obj)
+    for (let key in obj) {
+        const sp = key.split('.')
+        if (sp.length == 2) {
+
+            obj2[sp[0]] = {};
+
+            obj2[sp[0]][sp[1]] = obj[key];
+        } else {
+            obj2[key] = obj[key];
+        }
+        return obj2
+    }
+}
+
+//name:eq amit
+export function prepareWhere(query: any): any {
+    let obj: any = {};
+    for (let key in query) {
+        const sp = key.split(':')
+        if (sp.length == 2) {
+
+            obj[sp[0]] = typeOperator[sp[1]](query[key]);
+            //obj(name) = typeOperator[eq](amit)   //logic
+
+        } else {
+            obj[key] = query[key];
+            //obj[name] = query[name]
+        }
+        return prepareFilterByParent(obj)
+    }
+}
+
+// let query2 = {
+//     "user.name:nt": "amit"
+// }
+// let nbobj = prepareFileByParent(prepareWhere(query2))
+// console.log(nbobj);
+
+
+// prepareWhere({ 'id:not': 'x', a: "A" })

@@ -1,0 +1,13 @@
+{
+    "entryFile": "src/app.ts",
+    "noImplicitAdditionalProperties": "throw-on-extras",
+    "spec": {
+        "outputDirectory": "src",
+        "specVersion": 3,
+        "schemes": [
+            "http"
+        ],
+        "host": "localhost:4011",
+        "basePath": ""
+    }
+}
