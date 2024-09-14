@@ -6,7 +6,7 @@
 * [Installation](#Installation)
 * [Quick Start](#Quick-Start)
 * [Convention Rules](#Naming-convention-rules-for-models)
-* [Examples](#Examples)
+* [Examples](#Full-model-example-`user.address.model.ts`)
 * [Supported Operators](#Supported-Operators)
 * [Automatic Swagger Documentation](#Automatic-Swagger-Documentation)
 * [Project Structure](#Project-Structure)
