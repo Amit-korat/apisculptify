@@ -1,14 +1,34 @@
 
+**Fast, unopinionated, minimalist web back-end tool for [Node.js](http://nodejs.org).**
+
+## Table of contents
+
+* [Installation](#Installation)
+* [Quick Start](#Quick-Start)
+* [Convention Rules](#convention-rules)
+* [Examples](#Examples)
+* [Supported Operators](#Supported-Operators)
+* [Automatic Swagger Documentation](#Automatic-Swagger-Documentation)
+* [Project Structure](#Project-Structure)
+* [Contributing](#Contributing)
+* [License](#license)
+* [Acknowledgments](#Acknowledgments)
+
+[![NPM Version](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/apisculptify)
+[![NPM Install Size](https://img.shields.io/badge/Install_size-59.8kB-green)](https://www.npmjs.com/package/apisculptify)
+
+
 # Apisculptify - Automated REST API Generator for TypeORM Models 
-Apisculptify is a powerful Node.js tool designed to automate the process of generating RESTful APIs for your TypeORM models. With Apisculptify, you can quickly create a new project, define your TypeORM models, and effortlessly generate CRUD (Create, Read, Update, Delete) APIs for them and also swagger documentaion.
+Apisculptify is a powerful Node.js tool designed to automate the process of generating RESTful APIs for your TypeORM models. With Apisculptify, you can quickly create a new project, define your TypeORM models, and effortlessly generate CRUD (Create, Read, Update, Delete) APIs for them and also swagger documentation.
+
 ## Installation
 To use Apisculptify in your Node.js project, you can install it via npm:
 ```bash
 npm install -g apisculptify
 ```
 
-## Getting Started
-Follow the steps below to get started with Apisculptify:
+## Quick Start
+Follow the steps below to quick started with Apisculptify:
 
 #### 1. Create a new project using the `apisculptify new` command:
 
