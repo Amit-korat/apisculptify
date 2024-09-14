@@ -5,7 +5,7 @@
 
 * [Installation](#Installation)
 * [Quick Start](#Quick-Start)
-* [Convention Rules](#convention-rules)
+* [Convention Rules](#Naming-convention-rules-for-models)
 * [Examples](#Examples)
 * [Supported Operators](#Supported-Operators)
 * [Automatic Swagger Documentation](#Automatic-Swagger-Documentation)
