@@ -14,7 +14,7 @@
 * [License](#license)
 * [Acknowledgments](#Acknowledgments)
 
-[![NPM Version](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/apisculptify)
+[![NPM Version](https://img.shields.io/badge/npm-v1.0.2-blue)](https://www.npmjs.com/package/apisculptify)
 [![NPM Install Size](https://img.shields.io/badge/Install_size-59.8kB-green)](https://www.npmjs.com/package/apisculptify)
 
 
